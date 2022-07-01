@@ -1,9 +1,13 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include "action.h"
 
 int main(void)
 {
     SDL_Window *window;
+
+    ActionQueue queue;
+    InitQueue(&queue);
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL ERROR: %s!\n", SDL_GetError());
@@ -23,8 +27,13 @@ int main(void)
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
-                running = 0;
+                Action action = { .type = ACTION_QUIT };
+                QueueAction(&action, &queue);
             }
+        }
+        if ((ProcessAction(&queue)).type == ACTION_QUIT) {
+            running = 0;
+            PrintQueue(&queue);
         }
     }
 
