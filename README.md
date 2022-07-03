@@ -1,4 +1,4 @@
-# Baloon Quest
+# Balloon Quest
 ## A simple game to test some ideas
 Fly through the sky and avoid obstacles to achieve the dream of every baloon:
 Reaching the Exosphere!

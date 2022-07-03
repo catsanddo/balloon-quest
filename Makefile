@@ -7,7 +7,7 @@ SRC=$(shell find src -name '*.c')
 OBJ=$(SRC:.c=.o)
 
 BIN_DIR=bin
-BIN=baloon-quest
+BIN=balloon-quest
 
 all: $(BIN_DIR) $(BIN)
 
